@@ -9,6 +9,8 @@ export default function Question({ index, onSkipAnswer, onSelectAnswer }) {
     selectedAnswer: "",
     isCorrect: null,
   });
+
+  const answers = [...QUESTIONS[index].answers];
   const correctAnswer = QUESTIONS[index].answers[0];
 
   let timer = 10000;
@@ -57,7 +59,7 @@ export default function Question({ index, onSkipAnswer, onSelectAnswer }) {
       />
       <h2>{QUESTIONS[index].text}</h2>
       <Answers
-        answers={QUESTIONS[index].answers}
+        answers={answers}
         selectedAnswer={answer.selectedAnswer}
         answerState={answerState}
         onSelect={handleSelectAnswer}
